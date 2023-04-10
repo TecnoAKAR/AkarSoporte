@@ -7,7 +7,6 @@ idUsuario int primary key auto_increment, Nombre varchar(40),
  NomUsuario varchar(40), Fecha date
 );
 
-
 create table Reporte(
 idReporte int primary key auto_increment, Problema varchar(1024),
 Estatus varchar(40), Solucion varchar(1024), FechaI datetime, FechaF datetime);

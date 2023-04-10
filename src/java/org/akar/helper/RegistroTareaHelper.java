@@ -7,6 +7,7 @@ import org.akar.dao.Reporte;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.akar.dao.RelReporteUsuario;
+import org.akar.dao.TblUsuario;
 import org.akar.service.RegistroService;
 
 public class RegistroTareaHelper {
@@ -16,12 +17,14 @@ public class RegistroTareaHelper {
     public RegistroTareaHelper(){
         
     }
+    
     public boolean addRegistro( HttpServletRequest request ){
         reporte = new RelReporteUsuario();
         reporte.getRep().setProblema( request.getParameter("desc") );
         reporte.getRep().setEstatus("Abierto");
         reporte.getRep().setFechaI( new Date() );
         reporte.getUser().setCorreo(request.getParameter("correo"));
+        
         if( reporte.getRep().getProblema()== null || reporte.getRep().getProblema().length()==0 )
         {
             return false;
@@ -42,6 +45,9 @@ public class RegistroTareaHelper {
         return new RegistroService().addReporte(reporte);
     }
     
+    public List<TblUsuario> getListU(){
+        return new RegistroService().getListU();
+    }
     
     public Date getDate( String campo )
     {   
@@ -61,4 +67,5 @@ public class RegistroTareaHelper {
         }
         return null;
     }
+    
 }

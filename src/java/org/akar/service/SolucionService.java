@@ -75,7 +75,7 @@ public class SolucionService {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String sql = "SELECT DISTINCT u.idUsuario, u.NomUsuario, r.* FROM Usuario u INNER JOIN RelReporteUsuario rel ON u.idUsuario = rel.idUsuario INNER JOIN Reporte r ON rel.idReporte = r.idReporte WHERE r.idReporte = ?;";
+        String sql = "SELECT DISTINCT u.idUsuario, u.NomUsuario, u.Correo, r.* FROM Usuario u INNER JOIN RelReporteUsuario rel ON u.idUsuario = rel.idUsuario INNER JOIN Reporte r ON rel.idReporte = r.idReporte WHERE r.idReporte = ?;";
         try 
         {
             connection = DBConnection.getConnection( );
@@ -95,12 +95,13 @@ public class SolucionService {
                 relRepUsu = new RelReporteUsuario();
                 relRepUsu.getUser().setIdUsuario( resultSet.getInt(1) );
                 relRepUsu.getUser().setNomUser( resultSet.getString(2) );
-                relRepUsu.getRep().setIdReporte( resultSet.getInt(3) );
-                relRepUsu.getRep().setProblema( resultSet.getString(4) );
-                relRepUsu.getRep().setEstatus( resultSet.getString(5) );
-                relRepUsu.getRep().setSolucion( resultSet.getString(6) );
-                relRepUsu.getRep().setFechaI( resultSet.getDate(7) );
-                relRepUsu.getRep().setFechaF( resultSet.getDate(8) );
+                relRepUsu.getUser().setCorreo( resultSet.getString(3) );
+                relRepUsu.getRep().setIdReporte( resultSet.getInt(4) );
+                relRepUsu.getRep().setProblema( resultSet.getString(5) );
+                relRepUsu.getRep().setEstatus( resultSet.getString(6) );
+                relRepUsu.getRep().setSolucion( resultSet.getString(7) );
+                relRepUsu.getRep().setFechaI( resultSet.getDate(8) );
+                relRepUsu.getRep().setFechaF( resultSet.getDate(9) );
             }
             resultSet.close();
             DBConnection.closeConnection(connection);

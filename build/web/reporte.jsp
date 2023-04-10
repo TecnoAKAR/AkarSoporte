@@ -55,6 +55,11 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <b> Correo: </b> <br/> <%=rep.getUser().getCorreo()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <b> Problemática: </b> <br/> <%=rep.getRep().getProblema()%>
                                 </td>    
                             </tr>
@@ -114,18 +119,13 @@
                                         <input type="hidden" id="estatusInicial" name="estatI" value="<%=rep.getRep().getEstatus()%>">
                                         <input type="hidden" id="estatusInicial" name="idIng" value="<%=sesion.getUsuario().getIdUsuario()%>">
                                         <input type="hidden" id="sol" name="sol" value="<%=rep.getRep().getSolucion()%>">
-
-                                        <label for="exampleFormControlInput1" class="form-label"> <b> Estatus </b> </label>
-                                        <select id="tipoUsuario" name="estat" class="form-control" required>
-                                            <option selected> <%=rep.getRep().getEstatus()%> </option>
-                                            <option value="Cerrado"> Cerrado </option>
-                                        </select>
+                                        <input type="hidden" id="estat" name="estat" value="Cerrado">
                                         <label for="exampleFormControlTextarea1" class="form-label"> <b> Solución </b> </label>
                                         <textarea disabled="true" class="form-control" rows="3"> <%=rep.getRep().getSolucion()%> </textarea>
 
                                         </br>
                                         <center>  
-                                            <button type="submit" id="send" name="send" value="enviar" class="btn btn-primary btn-lg">Subir</button>
+                                            <button type="submit" id="send" name="send" value="enviar" class="btn btn-primary btn-lg">Cerrar reporte</button>
                                             <a href="Soporte.jsp"> <button type="button" class="btn btn-secondary btn-lg">Regresar a la lista</button> </a>
                                         </center>
                                     </form>

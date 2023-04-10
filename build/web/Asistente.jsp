@@ -1,3 +1,4 @@
+<%@page import="org.akar.dao.TblUsuario"%>
 <%@page import="org.akar.helper.ReporteGerenteMHelper"%>
 <%@page import="java.util.List"%>
 <%@page import="org.akar.dao.Reporte"%>
@@ -172,10 +173,21 @@
             <form>
                 <div>
                 <div>
-                    <input type="email" name="correo" id="correo" class="form-control" placeholder="Correo electrónico del usuario" required>
-                    <br>
-                    <br>
-                </div>    
+                    <%
+                        List<TblUsuario> list = new RegistroTareaHelper().getListU();
+                    %>
+                    <select name="correo" id="correo" class="form-select" aria-label="Default select example" required="true">
+                        <option selected="true" value=""> Seleccione un usuario </option>
+                        <%
+                            for(TblUsuario usuario : list){
+                        %>
+                        <option value="<%=usuario.getCorreo()%>"> <%=usuario.getNomUser()%> - <%=usuario.getCorreo()%> </option>
+                        <%
+                            }
+                        %>
+                    </select>
+                </div>
+                </br>
                 <div class="mb-3">
                     <textarea class="form-control" id="desc" name="desc" rows="10" maxlength="1024" placeholder="Descripción del problema" required></textarea>
                     <br>
