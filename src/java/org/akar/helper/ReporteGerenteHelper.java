@@ -54,8 +54,15 @@ public class ReporteGerenteHelper implements Serializable{
         psrep= new PSReporte(new Reporte(), new TblUsuario(), new TblTipoUsuario());
         
         
-        psrep.getReportito().setEstatus(request.getParameter("Estatus"));
         psrep.getUsuario().setNomUser(request.getParameter("idEncargado"));
+        String encargado=request.getParameter("idEncargado");
+        if(encargado.equals("LUIS AXEL")){
+        psrep.getReportito().setEstatus("En proceso");
+        }
+        else{
+       if(encargado.equals("ALEXANDER")){
+       psrep.getReportito().setEstatus("A Mantenimiento");                  
+       }}
         psrep.getReportito().setProblema(request.getParameter("Problema"));
         
         if(psrep.getUsuario().getNomUser().length() == 0 || psrep.getUsuario().getNomUser()== null){
@@ -73,7 +80,7 @@ public class ReporteGerenteHelper implements Serializable{
         if(psrep.getReportito().getEstatus().equals("A Mantenimiento") && psrep.getUsuario().getNomUser().equals("LUIS AXEL")){
             return false;
         }
-        if(psrep.getReportito().getEstatus().equals("En Soporte") && psrep.getUsuario().getNomUser().equals("ALEXANDER")){
+        if(psrep.getReportito().getEstatus().equals("En proceso") && psrep.getUsuario().getNomUser().equals("ALEXANDER")){
             return false;
         }
                

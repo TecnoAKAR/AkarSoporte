@@ -54,25 +54,19 @@
                         <div>
                             <form method="post" action="GerenteSoporte.jsp">
                                 <input hidden="true" id="Problema" name="Problema" value="<%=sol.getProblema()%>">
-                                <label for="exampleFormControlInput1" class="form-label"> <b> Estatus </b> </label>
-                                <select id="Estatus" name="Estatus" class="form-control">
-                                    <option disable="true"> <%=sol.getEstatus()%> </option>
-                                    <option value="En proceso">En proceso</option>
-                                    <option value="A Mantenimiento">A Mantenimiento</option>
-                                </select>
-                                <label for="exampleFormControlInput1" class="form-label"> <b> Encargado </b> </label>
+                                <label for="exampleFormControlInput1" class="form-label"><b>Personal Encargado</b></label>
                                 <select id="idEncargado" name="idEncargado" class="form-select" aria-label="Default select example">
                                 <%
                                     for(TblUsuario repor : reportito){
                                         %>
-                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>,Ingeniero de Soporte</option>                            
+                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>, Ingeniero de Mantenimiento </option>                            
                                         <%
                                     }
                                 %>
                                  <%
                                     for(TblUsuario repor : reportito2){
                                         %>
-                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>,Gerente de Mantenimiento </option>                            
+                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>, Gerente de Soporte </option>                            
                                         <%
                                     }
                                 %>
@@ -84,7 +78,6 @@
         <%                                
                     }
         %>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>

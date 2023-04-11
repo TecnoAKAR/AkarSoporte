@@ -160,58 +160,25 @@
                                     <jsp:include page="ReporteGerente.jsp" />
                             <%
                                 }
-                        String send = request.getParameter("send");
-                        String condicion= request.getParameter("Estatus");
+                   String send=request.getParameter("send");
                         if(send==null){
                             send="";
                         }
-                        if(condicion==null){
-                            send="";
-                        }
-                        if(send.equals("enviar")){
-                        if(condicion.equals("En proceso")){
-                        boolean reporte;
-                        reporte=new ReporteGerenteHelper().AsignarReporteIng(request);
-                        if(reporte==true){
-                            %>
-                               <script> alert("Reporte actualizado"); </script>
-                            <%
-                        }
-                            else{
-
-%>
-                               <script> alert("Reporte No Actualizado"); </script>
-                            <%
-                            }
-                          }
-                            else{
-                        if(condicion.equals("A Mantenimiento")){
-                        boolean reporte;
-                        reporte=new ReporteGerenteHelper().AsignarReporteIng(request);
-                        if(reporte==true){
-                            %>
-                               <script> alert("Reporte actualizado"); </script>
-                            <%
-                        }
-                            else{
-%>
-                               <script> alert("Reporte No Actualizado"); </script>
-                            <%
-                            }
-                          }
-
-                        }
-                        }
-            if(action == null){
-                action = "";
-            }
-            switch(action){
-                case "close":
-                    request.getSession().removeAttribute("usuario");
-                    response.sendRedirect("index.jsp");
-                    break;
-            }        
+                    if(send.equals("enviar")){
+                    boolean reporte;
+                    reporte=new ReporteGerenteHelper().AsignarReporteIng(request);;
+                    if(reporte == true){
         %>
+                        <script> alert("Se ha actualizado el reporte."); </script>
+        <%
+                    } else{
+        %>
+                        <script> alert("No se ha actualizado."); </script>
+        <%
+                    }     
+                }
+        %>
+        
 
                             
                 

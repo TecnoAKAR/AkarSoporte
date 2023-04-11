@@ -55,12 +55,6 @@
                             <form method="post" action="GerenteMantenimiento.jsp">
                                 <input hidden="true" id="Problema" name="Problema" value="<%=sol.getProblema()%>">
                                 <input hidden="true" id="Solucion" name="Solucion" value="<%=sol.getSolucion()%>">
-                                <label for="exampleFormControlInput1" class="form-label"> <b> Estatus </b> </label>
-                                <select id="tipoUsuario" name="Estatus" class="form-control">
-                                    <option selected> <%=sol.getEstatus()%> </option>
-                                    <option value="En Programacion">En Programacion</option>
-                                    <option value="Programacion Finalizada">Mantenimiento Finalizado</option>
-                                </select>
                                 <label for="exampleFormControlInput1" class="form-label"><b>Personal Encargado</b></label>
                                 <select id="idEncargado" name="idEncargado" class="form-select" aria-label="Default select example">
                                 <%

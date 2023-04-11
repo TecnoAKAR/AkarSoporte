@@ -155,12 +155,12 @@
                             <%
                                 }
                         String send=request.getParameter("send");
-                        String condicion= request.getParameter("Estatus");
+                        String condicion= request.getParameter("idEncargado");
                         if(send==null){
                             send="";
                         }
                         if(send.equals("enviar")){
-                        if(condicion.equals("En Programacion")){
+                        if(condicion.equals("RODRIGO VIDAL")){
                         boolean reporte;
                         reporte=new ReporteGerenteMHelper().AsignarReporteIng(request);
                         if(reporte==true){
@@ -176,7 +176,7 @@
                             }
                           }
                             else{
-                        if(condicion.equals("Programacion Finalizada")){
+                        if(condicion.equals("KALID")){
                         boolean reporte;
                         reporte=new ReporteGerenteMHelper().AsignarReporteSop(request);
                         if(reporte==true){

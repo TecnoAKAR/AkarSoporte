@@ -40,7 +40,10 @@ public class ReporteGerenteMService {
             if(statement==null){
                 return null;
             }
-            resultSet=statement.executeQuery("SELECT idReporte,Problema,Solucion,FechaI FROM Reporte");
+            resultSet=statement.executeQuery("SELECT DISTINCT r.idReporte, r.Problema, r.FechaI\n" +
+"FROM Reporte r\n" +
+"INNER JOIN ReporteCambios rc ON r.idReporte = rc.idReporte\n" +
+"WHERE rc.idUsuario = 4");
             if(resultSet==null){
                 return null;
             }
@@ -49,8 +52,7 @@ public class ReporteGerenteMService {
                 reportito=new Reporte();
                 reportito.setIdReporte(resultSet.getInt(1));
                 reportito.setProblema(resultSet.getString(2));
-                reportito.setSolucion(resultSet.getString(3));
-                reportito.setFechaI(resultSet.getDate(4));
+                reportito.setFechaI(resultSet.getDate(3));
                 Reportito.add(reportito);
             }
             resultSet.close();
