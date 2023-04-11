@@ -239,3 +239,4 @@ call sp_Registro('Usuario', 'Super','Super', '2004-05-24','superusuario@gmail.co
 call sp_Registro('Test', 'Test','Test', '2000-01-01','root@gmail.com','n0m3l0','Root', 4);
 call sp_Registro('Luis', 'Zarate','Lozano', '2000-01-02','zarate.lozano.luis.axel@gmail.com','luisin','LuisAPP', 4);
 call sp_Registro('Rodri', 'Ramirez','Aguilar', '2000-01-03','rodri@gmail.com','rodri','Rodri', 4);
+call sp_Registro('Lucifer', 'Estrella','De la Mañana', '2000-01-03','luciestrelladelamañana@gmail.com','luciestrelladelamañana','Lucy', 4);
