@@ -26,6 +26,7 @@ public class ReporteGerenteMHelper implements Serializable{
     private List<Reporte> historial;
     private List<TblUsuario> ing;
     private List<TblUsuario> gen;
+    private List<Reporte> historial2;
     Reporte reportito;
     TblUsuario usuario;
     ReporteCambios repCam;
@@ -192,5 +193,20 @@ public class ReporteGerenteMHelper implements Serializable{
     }
        public void setlist4(List<Reporte> historial){
         this.historial=historial;
+    }
+       public boolean loadlist5(){
+        historial2 = ReporteGerenteMService.getListHistorial2();
+        return historial2 != null && historial2.size()>0;
+}
+    public List<Reporte>getlist5(){
+        if(historial2==null || historial2.size()==0){
+            if(!loadlist5()){
+                return null;
+            }
+        }
+        return historial2;
+    }
+       public void setlist5(List<Reporte> historial2){
+        this.historial2=historial2;
     }
 }

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%
     PSUsuario sesion = (PSUsuario)session.getAttribute("usuario");
-    List<Reporte> Historial=new ReporteGerenteMHelper().getlist4();
+    List<Reporte> Historial=new ReporteGerenteMHelper().getlist5();
 
     if(sesion != null){
         if(sesion.getTipo().getIdTipo() != 5 && sesion.getTipo().getIdTipo() != 10){
@@ -99,7 +99,7 @@
                                 }
                             %>
                             
-                            <!-- ** Menu End ** -->
+                            <!-- * Menu End * -->
                         </nav>
                     </div>
                 </div>

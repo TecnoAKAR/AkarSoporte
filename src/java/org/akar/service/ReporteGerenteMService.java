@@ -41,9 +41,48 @@ public class ReporteGerenteMService {
                 return null;
             }
             resultSet=statement.executeQuery("SELECT DISTINCT r.idReporte, r.Problema, r.FechaI\n" +
-"FROM Reporte r\n" +
-"INNER JOIN ReporteCambios rc ON r.idReporte = rc.idReporte\n" +
-"WHERE rc.idUsuario = 4");
+                                             "FROM Reporte r\n" +
+                                             "INNER JOIN ReporteCambios rc ON r.idReporte = rc.idReporte\n" +
+                                             "WHERE rc.idUsuario = 4");
+            if(resultSet==null){
+                return null;
+            }
+            Reportito=new ArrayList<>();
+            while(resultSet.next()){
+                reportito=new Reporte();
+                reportito.setIdReporte(resultSet.getInt(1));
+                reportito.setProblema(resultSet.getString(2));
+                reportito.setFechaI(resultSet.getDate(3));
+                Reportito.add(reportito);
+            }
+            resultSet.close();
+            closeConnection(con);
+            return Reportito;
+        }
+        
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;}
+     public static List<Reporte> getListHistorial2(){
+        List<Reporte> Reportito=null;
+        Connection con=null;
+        Statement statement=null;
+        ResultSet resultSet=null;
+        Reporte reportito=null;
+        try{
+            con=getConnection();
+            if (con==null){
+                return null;
+            }
+            statement=con.createStatement();
+            if(statement==null){
+                return null;
+            }
+            resultSet=statement.executeQuery("SELECT DISTINCT r.idReporte, r.Problema, r.FechaI\n" +
+                                             "FROM Reporte r\n" +
+                                             "INNER JOIN ReporteCambios rc ON r.idReporte = rc.idReporte\n" +
+                                             "WHERE rc.idUsuario = 1");
             if(resultSet==null){
                 return null;
             }
