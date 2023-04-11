@@ -79,10 +79,7 @@ public class ReporteGerenteMService {
             if(statement==null){
                 return null;
             }
-            resultSet=statement.executeQuery("SELECT DISTINCT r.idReporte, r.Problema, r.FechaI\n" +
-                                             "FROM Reporte r\n" +
-                                             "INNER JOIN ReporteCambios rc ON r.idReporte = rc.idReporte\n" +
-                                             "WHERE rc.idUsuario = 1");
+            resultSet=statement.executeQuery("select idReporte, Problema, FechaI from Reporte;");
             if(resultSet==null){
                 return null;
             }

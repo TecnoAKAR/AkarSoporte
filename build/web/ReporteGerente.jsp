@@ -59,14 +59,14 @@
                                 <%
                                     for(TblUsuario repor : reportito){
                                         %>
-                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>, Ingeniero de Mantenimiento </option>                            
+                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>, Ingeniero de Soporte </option>                            
                                         <%
                                     }
                                 %>
                                  <%
                                     for(TblUsuario repor : reportito2){
                                         %>
-                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>, Gerente de Soporte </option>                            
+                                            <option value="<%=repor.getNomUser()%>"> <%=repor.getNomUser()%>, Gerente de Mantenimiento </option>                            
                                         <%
                                     }
                                 %>

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%
     PSUsuario sesion = (PSUsuario)session.getAttribute("usuario");
-    List<Reporte> Historial=new ReporteGerenteMHelper().getlist5();
+    List<Reporte> historial=new ReporteGerenteMHelper().getlist5();
 
     if(sesion != null){
         if(sesion.getTipo().getIdTipo() != 5 && sesion.getTipo().getIdTipo() != 10){
@@ -59,11 +59,11 @@
                                 if(sesion.getTipo().getIdTipo() == 10){
                             %>
                                     <ul class="nav">
-                                        <li class="scroll-to-section"><a href="Asistente.jsp">Asistente</a></li>
+                                        <li class="scroll-to-section"><a href="Asistente.jsp" class="active">Asistente</a></li>
                                         <li class="scroll-to-section"><a href="GerenteSoporte.jsp">Gerente de soporte</a></li>
                                         <li class="scroll-to-section"><a href="GerenteMantenimiento.jsp">Gerente de mantenimiento</a></li>
                                         <li class="scroll-to-section"><a href="IngMantenimiento.jsp">Ing de mantenimiento</a></li>
-                                        <li class="scroll-to-section"><a href="Soporte.jsp" class="active">Ing de soporte</a></li>
+                                        <li class="scroll-to-section"><a href="Soporte.jsp">Ing de soporte</a></li>
                                         <li class="scroll-to-section"><a href="?action=close">Cerrar sesión</a></li> 
                                     </ul>        
                                     <a class='menu-trigger'>
@@ -151,11 +151,17 @@
                     boolean act = new RegistroTareaHelper().addRegistro(request);
                     if(act == true){
         %>
-                        <script> alert("Se ha actualizado el estatus del reporte."); </script>
+                        <!-- <script> alert("Se ha actualizado el estatus del reporte."); </script> -->
+                        <script>
+                            window.location.replace("Asistente.jsp");
+                        </script>
         <%
                     } else{
         %>
-                        <script> alert("No se ha actualizado."); </script>
+                        <!-- <script> alert("No se ha actualizado."); </script> -->
+                        <script>
+                            window.location.replace("Asistente.jsp");
+                        </script>
         <%
                     } 
                     break;          
@@ -202,7 +208,7 @@
                 <br><br><br><br>
                 
                 <%
-                if(Historial==null){
+                if(historial==null){
                 %>
                         
      <h4><center>Sin reportes</center></h4>
@@ -225,7 +231,7 @@
                             </tr>
 
                             <%
-                                for(Reporte reportito : Historial){
+                                for(Reporte reportito : historial){
                             %>
                                     <tr>
                                         <td>

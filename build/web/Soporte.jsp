@@ -4,6 +4,7 @@
     Author     : Axel Zarate Lozano
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.akar.dao.RelReporteEncargado"%>
 <%@page import="org.akar.dao.Reporte"%>
 <%@page import="org.akar.dao.PSUsuario"%>
@@ -20,13 +21,8 @@
         if(sesion.getTipo().getIdTipo() != 7 && sesion.getTipo().getIdTipo() != 10){
             response.sendRedirect("notAccess.jsp");
         }
-		
-		
-		
 		int lastR = 0;
-		
-		
-		
+                List<Integer> lRLista = new ArrayList<Integer>();
 %>
 <html lang="es">
     <head>
@@ -179,25 +175,27 @@
 
                                         <%
                                             if(sesion.getTipo().getIdTipo() == 10){
+                                                lRLista.clear();
                                                 for(RelReporteEncargado reporte : list){
                                                     if(reporte.getRep().getEstatus().equals("En proceso")){
-														if(lastR != reporte.getRep().getIdReporte()){
-															lastR = reporte.getRep().getIdReporte();
+                                                        if(lastR != reporte.getRep().getIdReporte() && !lRLista.contains(reporte.getRep().getIdReporte())){
+                                                                lastR = reporte.getRep().getIdReporte();
+                                                                lRLista.add(lastR);
                                         %>
-															<tr>
-																<td>
-																	<a href="?action=rep&tipo=Sol&idreporte=<%=reporte.getRep().getIdReporte()%>"> <button type="button" class="btn btn-dark"> <%=reporte.getRep().getIdReporte()%> </button> </a>
-																</td>
-																<td>
-																	<%=reporte.getRep().getFechaI()%>
-																</td>
-																<td>
-																	<%=reporte.getRep().getEstatus()%>
-																</td>
-															</tr>    
+                                                                <tr>
+                                                                        <td>
+                                                                                <a href="?action=rep&tipo=Sol&idreporte=<%=reporte.getRep().getIdReporte()%>"> <button type="button" class="btn btn-dark"> <%=reporte.getRep().getIdReporte()%> </button> </a>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getFechaI()%>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getEstatus()%>
+                                                                        </td>
+                                                                </tr>    
                                         <%
-														}
-													}
+                                                        }
+                                                }
                                                 }
                                             } else {
                                                 for(RelReporteEncargado reporte : list){
@@ -239,25 +237,27 @@
 
                                         <%
                                             if(sesion.getTipo().getIdTipo() == 10){
+                                                lRLista.clear();
                                                 for(RelReporteEncargado reporte : list){
                                                     if(reporte.getRep().getEstatus().equals("Solucionado")){
-														if(lastR != reporte.getRep().getIdReporte()){
-															lastR = reporte.getRep().getIdReporte();
+                                                        if(lastR != reporte.getRep().getIdReporte() && !lRLista.contains(reporte.getRep().getIdReporte())){
+                                                                lastR = reporte.getRep().getIdReporte();
+                                                                lRLista.add(lastR);
                                         %>
-															<tr>
-																<td>
-																	<a href="?action=rep&tipo=Sol&idreporte=<%=reporte.getRep().getIdReporte()%>"> <button type="button" class="btn btn-dark"> <%=reporte.getRep().getIdReporte()%> </button> </a>
-																</td>
-																<td>
-																	<%=reporte.getRep().getFechaI()%>
-																</td>
-																<td>
-																	<%=reporte.getRep().getEstatus()%>
-																</td>
-															</tr>    
+                                                                <tr>
+                                                                        <td>
+                                                                                <a href="?action=rep&tipo=Sol&idreporte=<%=reporte.getRep().getIdReporte()%>"> <button type="button" class="btn btn-dark"> <%=reporte.getRep().getIdReporte()%> </button> </a>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getFechaI()%>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getEstatus()%>
+                                                                        </td>
+                                                                </tr>    
                                         <%
-														}
-													}
+                                                        }
+                                                }
                                                 }
                                             } else {
                                                 for(RelReporteEncargado reporte : list){
@@ -302,28 +302,30 @@
 
                                         <%
                                             if(sesion.getTipo().getIdTipo() == 10){
+                                                lRLista.clear();
                                                 for(RelReporteEncargado reporte : list){
                                                     if(reporte.getRep().getEstatus().equals("Cerrado")){
-														if(lastR != reporte.getRep().getIdReporte()){
-															lastR = reporte.getRep().getIdReporte();
+                                                        if(lastR != reporte.getRep().getIdReporte() && !lRLista.contains(reporte.getRep().getIdReporte())){
+                                                                lastR = reporte.getRep().getIdReporte();
+                                                                lRLista.add(lastR);
                                         %>
-															<tr>
-																<td>
-																	<a href="?action=rep&tipo=Sol&idreporte=<%=reporte.getRep().getIdReporte()%>"> <button type="button" class="btn btn-dark"> <%=reporte.getRep().getIdReporte()%> </button> </a>
-																</td>
-																<td>
-																	<%=reporte.getRep().getFechaI()%>
-																</td>
-																<td>
-																	<%=reporte.getRep().getFechaF()%>
-																</td>
-																<td>
-																	<%=reporte.getRep().getEstatus()%>
-																</td>
-															</tr>    
+                                                                <tr>
+                                                                        <td>
+                                                                                <a href="?action=rep&tipo=Sol&idreporte=<%=reporte.getRep().getIdReporte()%>"> <button type="button" class="btn btn-dark"> <%=reporte.getRep().getIdReporte()%> </button> </a>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getFechaI()%>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getFechaF()%>
+                                                                        </td>
+                                                                        <td>
+                                                                                <%=reporte.getRep().getEstatus()%>
+                                                                        </td>
+                                                                </tr>    
                                         <%
-														}
-													}
+                                                        }
+                                                }
                                                 }
                                             } else {
                                                 for(RelReporteEncargado reporte : list){
@@ -378,8 +380,15 @@
                             icon: 'warning',
                             title: 'Alerta',
                             text: '<%=updated%>',
-                            footer: '<button type="button" class="btn btn-light"> <a href="Soporte.jsp">Actualizar página</a> </button>'
-                          }); 
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Ok'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.replace("Soporte.jsp");
+                            }
+                          });  
                     </script>
         <%        
                 } else{
@@ -389,8 +398,15 @@
                             icon: 'success',
                             title: 'Atención',
                             text: '<%=updated%>',
-                            footer: '<button type="button" class="btn btn-light"> <a href="Soporte.jsp">Actualizar página</a> </button>'
-                          }); 
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Ok'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.replace("Soporte.jsp");
+                            }
+                          });
                     </script>
         <%                
                 }

@@ -42,9 +42,9 @@
                                     <ul class="nav">
                                         <li class="scroll-to-section"><a href="Asistente.jsp">Asistente</a></li>
                                         <li class="scroll-to-section"><a href="GerenteSoporte.jsp">Gerente de soporte</a></li>
-                                        <li class="scroll-to-section"><a href="GerenteMantenimiento.jsp">Gerente de mantenimiento</a></li>
+                                        <li class="scroll-to-section"><a href="GerenteMantenimiento.jsp" class="active">Gerente de mantenimiento</a></li>
                                         <li class="scroll-to-section"><a href="IngMantenimiento.jsp">Ing de mantenimiento</a></li>
-                                        <li class="scroll-to-section"><a href="Soporte.jsp" class="active">Ing de soporte</a></li>
+                                        <li class="scroll-to-section"><a href="Soporte.jsp">Ing de soporte</a></li>
                                         <li class="scroll-to-section"><a href="?action=close">Cerrar sesión</a></li> 
                                     </ul>        
                                     <a class='menu-trigger'>
@@ -165,13 +165,19 @@
                         reporte=new ReporteGerenteMHelper().AsignarReporteIng(request);
                         if(reporte==true){
                             %>
-                               <script> alert("Reporte Actualizado"); </script>
+                               <!-- <script> alert("Reporte Actualizado"); </script> -->
+                               <script>
+                                   window.location.replace("GerenteMantenimiento.jsp");
+                               </script>
                             <%
                         }
                             else{
 
 %>
-                               <script> alert("Reporte No Actualizado"); </script>
+                               <!-- <script> alert("Reporte No Actualizado"); </script> -->
+                               <script>
+                                    window.location.replace("GerenteMantenimiento.jsp");
+                                </script>
                             <%
                             }
                           }
@@ -181,12 +187,18 @@
                         reporte=new ReporteGerenteMHelper().AsignarReporteSop(request);
                         if(reporte==true){
                             %>
-                               <script> alert("Reporte actualizado"); </script>
+                               <!-- <script> alert("Reporte actualizado"); </script> -->
+                               <script>
+                                    window.location.replace("GerenteMantenimiento.jsp");
+                                </script>
                             <%
                         }
                             else{
 %>
-                               <script> alert("Reporte No Actualizado"); </script>
+                               <!-- <script> alert("Reporte No Actualizado"); </script> -->
+                               <script>
+                                    window.location.replace("GerenteMantenimiento.jsp");
+                                </script>
                             <%
                             }
                           }

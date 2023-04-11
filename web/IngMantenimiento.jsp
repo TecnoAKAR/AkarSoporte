@@ -56,19 +56,22 @@
            top: 50px;
            height: 40%;
            left: 0px;
+           overflow-y:scroll;
+           overflow-x:hidden;
+           scroll-behavior: auto;
         }
         .right{
             width: 100%;
-            height: 60%;
+            height: 50%;
             position: fixed;
-            bottom: 0px;
+            bottom: 30px;
             right: 0px;
         }
         .Solucion{
-            width: 90%;
+            width: 60%;
         }
         .Selecciona{
-            width: 85%;
+            width: 65%;
         }
     </style>
     <body>
@@ -90,8 +93,8 @@
                                         <li class="scroll-to-section"><a href="Asistente.jsp">Asistente</a></li>
                                         <li class="scroll-to-section"><a href="GerenteSoporte.jsp">Gerente de soporte</a></li>
                                         <li class="scroll-to-section"><a href="GerenteMantenimiento.jsp">Gerente de mantenimiento</a></li>
-                                        <li class="scroll-to-section"><a href="IngMantenimiento.jsp">Ing de mantenimiento</a></li>
-                                        <li class="scroll-to-section"><a href="Soporte.jsp" class="active">Ing de soporte</a></li>
+                                        <li class="scroll-to-section"><a href="IngMantenimiento.jsp" class="active">Ing de mantenimiento</a></li>
+                                        <li class="scroll-to-section"><a href="Soporte.jsp">Ing de soporte</a></li>
                                         <li class="scroll-to-section"><a href="?action=close">Cerrar sesión</a></li> 
                                     </ul>        
                                     <a class='menu-trigger'>
@@ -200,11 +203,17 @@
                 boolean updated = new ListEstatusHelper().addRegistro(request);
                 if(updated == true){
                 %>
-                    <script> alert("Reporte finalizado"); </script>
+                    <!-- <script> alert("Reporte finalizado"); </script> -->
+                    <script>
+                        window.location.replace("IngMantenimiento.jsp");
+                    </script>
         <%
                 } else{
         %>
-                    <script> alert("Hubo un error al actualizar el reporte"); </script>
+                    <!-- <script> alert("Hubo un error al actualizar el reporte"); </script> -->
+                    <script>
+                        window.location.replace("IngMantenimiento.jsp");
+                    </script>
         <%
                 }
             }

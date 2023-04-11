@@ -40,10 +40,10 @@
                             %>
                                     <ul class="nav">
                                         <li class="scroll-to-section"><a href="Asistente.jsp">Asistente</a></li>
-                                        <li class="scroll-to-section"><a href="GerenteSoporte.jsp">Gerente de soporte</a></li>
+                                        <li class="scroll-to-section"><a href="GerenteSoporte.jsp" class="active">Gerente de soporte</a></li>
                                         <li class="scroll-to-section"><a href="GerenteMantenimiento.jsp">Gerente de mantenimiento</a></li>
                                         <li class="scroll-to-section"><a href="IngMantenimiento.jsp">Ing de mantenimiento</a></li>
-                                        <li class="scroll-to-section"><a href="Soporte.jsp" class="active">Ing de soporte</a></li>
+                                        <li class="scroll-to-section"><a href="Soporte.jsp">Ing de soporte</a></li>
                                         <li class="scroll-to-section"><a href="?action=close">Cerrar sesión</a></li> 
                                     </ul>        
                                     <a class='menu-trigger'>
@@ -169,11 +169,15 @@
                     reporte=new ReporteGerenteHelper().AsignarReporteIng(request);;
                     if(reporte == true){
         %>
-                        <script> alert("Se ha actualizado el reporte."); </script>
+                        <script>
+                            window.location.replace("GerenteSoporte.jsp");
+                        </script>
         <%
                     } else{
         %>
-                        <script> alert("No se ha actualizado."); </script>
+                        <script>
+                            window.location.replace("GerenteSoporte.jsp");
+                        </script>
         <%
                     }     
                 }
